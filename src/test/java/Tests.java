@@ -1,14 +1,15 @@
-import com.jayway.jsonpath.internal.function.sequence.First;
 import org.junit.jupiter.api.Test;
-import org.spring_practice.FirstClass;
-import org.spring_practice.SecondClass;
+import org.spring_practice.apiEndPoint.PostApi;
+import org.spring_practice.pojo.PostRequestResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class Tests {
     @Autowired
-    SecondClass secondClass;
+    PostApi postApi;
+
     @Test
-    public void test1(){
-        System.out.println(secondClass.secondClassMethod());
+    public void doPostRequest() {
+        PostRequestResponse body = new PostRequestResponse(1,1,"hi", "testInput1");
+        postApi.postRequest(body);
     }
 }

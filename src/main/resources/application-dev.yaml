@@ -1,0 +1,4 @@
+services:
+  service1:
+    api: https://jsonplaceholder.typicode.com
+
