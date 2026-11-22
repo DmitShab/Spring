@@ -1,6 +1,6 @@
-package org.spring_practice.apiEndPoint;
+package org.spring_practice.apiendpoint;
 
-import org.spring_practice.baseHttpClient.BaseHttpClient;
+import org.spring_practice.basehttpclient.BaseHttpClient;
 import org.spring_practice.pojo.PostRequestResponse;
 import org.springframework.stereotype.Component;
 

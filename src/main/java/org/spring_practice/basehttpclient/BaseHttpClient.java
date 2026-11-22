@@ -1,4 +1,4 @@
-package org.spring_practice.baseHttpClient;
+package org.spring_practice.basehttpclient;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.ErrorLoggingFilter;

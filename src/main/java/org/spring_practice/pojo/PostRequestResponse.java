@@ -1,10 +1,14 @@
 package org.spring_practice.pojo;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-//@Data
-//@Builder
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class PostRequestResponse {
 
     private Integer userId;
@@ -12,10 +16,4 @@ public class PostRequestResponse {
     private String title;
     private String body;
 
-    public PostRequestResponse(Integer userId, Integer id, String title, String body) {
-        this.userId = userId;
-        this.id = id;
-        this.title = title;
-        this.body = body;
-    }
 }
