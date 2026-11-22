@@ -4,6 +4,7 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.ErrorLoggingFilter;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.spring_practice.config.ConfigParams;
@@ -16,28 +17,27 @@ import static io.restassured.RestAssured.given;
 public abstract class BaseHttpClient {
     @Autowired
     ConfigParams config;
-    public RequestSpecification baseRequestSpecBuilder =
-            new RequestSpecBuilder()
-                    .setBaseUri(config.postHost)
-                    .addHeader("Content-Type", "application/json")
-                    .setRelaxedHTTPSValidation()
-                    .addFilter(new RequestLoggingFilter())
-                    .addFilter(new ResponseLoggingFilter())
-                    .addFilter(new ErrorLoggingFilter())
-                    .build();
-
-    protected Response doGetRequest(String path, Map<String, Integer> params) {
+    public RequestSpecification spec() {
+       return new RequestSpecBuilder()
+                .setBaseUri(config.postHost)
+                .setContentType(ContentType.JSON)
+                .setRelaxedHTTPSValidation()
+                .addFilter(new RequestLoggingFilter())
+                .addFilter(new ResponseLoggingFilter())
+                .addFilter(new ErrorLoggingFilter())
+                .build();
+    }
+    protected Response doGetRequest(String path) {
         return given()
-                .spec(baseRequestSpecBuilder)
-                .get(path)
-                .thenReturn();
+                .spec(spec())
+                .get(path);
+
     }
 
     protected Response doPostRequest(String path, Object body) {
         return given()
-                .spec(baseRequestSpecBuilder)
+                .spec(spec())
                 .body(body)
-                .post(path)
-                .thenReturn();
+                .post(path);
     }
 }

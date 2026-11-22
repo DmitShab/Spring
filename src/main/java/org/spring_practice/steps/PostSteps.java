@@ -1,4 +1,4 @@
-package steps;
+package org.spring_practice.steps;
 
 import org.spring_practice.apiendpoint.PostApi;
 import org.spring_practice.pojo.PostRequestResponse;
