@@ -31,9 +31,7 @@ public abstract class BaseHttpClient {
         return given()
                 .spec(spec())
                 .get(path);
-
     }
-
     protected Response doPostRequest(String path, Object body) {
         return given()
                 .spec(spec())
