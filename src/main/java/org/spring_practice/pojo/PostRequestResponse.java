@@ -1,14 +1,9 @@
 package org.spring_practice.pojo;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import groovyjarjarantlr4.v4.runtime.misc.NotNull;
+import lombok.*;
 
 @Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 public class PostRequestResponse {
 
     private Integer userId;
