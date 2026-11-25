@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.spring_practice.steps.PostSteps;
 
+
 @SpringBootTest(classes = AppConfig.class)
 @ActiveProfiles("dev")
 public class Tests {
@@ -15,6 +16,6 @@ public class Tests {
 
     @Test
     public void doPostRequest() {
-        steps.sendValidPostRequest();
+        steps.checkScenario1();
     }
 }
